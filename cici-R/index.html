@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王紫沿 · 简历</title>
+<style>
+  :root{
+    --frame:#d2c3ac;      /* 温暖 taupe 外框 */
+    --cream:#fdfbf6;      /* 奶油内页 */
+    --ink:#2f2a24;        /* 暖黑正文 */
+    --sub:#544c40;        /* 次级文字 */
+    --muted:#948a7b;      /* 弱化文字 */
+    --gold:#9c7b4c;       /* 金铜主色 */
+    --gold-soft:#bfa273;  /* 浅金 */
+    --line:#e7dcc8;       /* 分割线 */
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{background:#e9e2d6;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--ink);
+    line-height:1.4;
+    font-size:9.4pt;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    position:relative;
+    width:210mm;height:297mm;
+    margin:18px auto;
+    background:var(--frame);
+    padding:8mm;
+    box-shadow:0 6px 30px rgba(0,0,0,.18);
+    overflow:hidden;
+  }
+  .card{
+    position:relative;
+    width:100%;height:100%;
+    background:var(--cream);
+    padding:9mm 11mm 8mm;
+    overflow:hidden;
+  }
+  /* 四角装饰（模板2 的小设计） */
+  .corner{position:absolute;width:14px;height:14px;border:0 solid var(--gold);}
+  .corner.tl{top:5mm;left:5mm;border-top-width:2px;border-left-width:2px;}
+  .corner.tr{top:5mm;right:5mm;border-top-width:2px;border-right-width:2px;}
+  .corner.bl{bottom:5mm;left:5mm;border-bottom-width:2px;border-left-width:2px;}
+  .corner.br{bottom:5mm;right:5mm;border-bottom-width:2px;border-right-width:2px;}
+
+  /* ===== Header ===== */
+  header{display:flex;gap:14px;align-items:flex-start;padding-bottom:9px;border-bottom:1.5px solid var(--gold);}
+  .photo{width:94px;height:120px;object-fit:cover;object-position:center top;border-radius:5px;border:1px solid #d8cbb4;flex-shrink:0;}
+  .hmain{flex:1;padding-top:1px;}
+  .name-row{display:flex;align-items:baseline;gap:9px;}
+  .name-row h1{font-size:21pt;font-weight:700;letter-spacing:2px;line-height:1;}
+  .name-row .en{font-size:11.5pt;color:var(--muted);font-weight:500;letter-spacing:.5px;}
+  .name-row .g{font-size:8.6pt;color:var(--gold);border:1px solid var(--gold-soft);border-radius:10px;padding:0 7px;line-height:15px;}
+  .role{font-size:10.5pt;color:var(--gold);font-weight:600;margin-top:5px;}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+  .tags span{font-size:8.2pt;color:#6f5836;border:1px solid var(--gold-soft);border-radius:20px;padding:1.5px 9px;background:#fbf4e8;}
+  .contact{font-size:8.6pt;color:var(--sub);margin-top:8px;}
+  .contact .sep{color:#d3c7b2;margin:0 6px;}
+
+  /* ===== Body ===== */
+  .body{display:flex;gap:16px;margin-top:10px;}
+  .side{width:31%;}
+  .main{flex:1;min-width:0;}
+
+  h2{font-size:10.8pt;font-weight:700;color:var(--ink);display:flex;align-items:baseline;gap:7px;
+     padding-bottom:3px;border-bottom:1.5px solid var(--gold);margin-bottom:6px;}
+  h2 .en{font-size:7.6pt;font-weight:600;color:var(--gold-soft);letter-spacing:1.5px;text-transform:uppercase;}
+  section{margin-bottom:11px;}
+  .side section{margin-bottom:11px;}
+
+  /* 数据强调 */
+  .hl{color:#8a5f26;font-weight:700;}                    /* 侧栏：金色加粗 */
+  .stat{color:#6f4c1e;font-weight:700;white-space:nowrap; /* 主栏：荧光笔高亮 */
+        background:linear-gradient(transparent 55%, #f4e2b6 55%);padding:0 3px;border-radius:1px;}
+
+  /* Education */
+  .edu{margin-bottom:7px;}
+  .edu .deg{font-size:9.6pt;font-weight:700;color:var(--ink);}
+  .edu .sch{font-size:8.8pt;color:var(--sub);margin-top:1px;}
+  .edu .date{font-size:8.2pt;color:var(--muted);margin-top:1px;}
+
+  /* Sidebar simple rows */
+  .srow{margin-bottom:6px;font-size:8.9pt;color:var(--sub);}
+  .srow b{color:var(--ink);font-weight:700;display:block;margin-bottom:1px;}
+
+  /* Compact experience in sidebar */
+  .mexp{margin-bottom:8px;}
+  .mexp .mt{font-size:9.3pt;font-weight:700;color:var(--ink);}
+  .mexp .mr{font-size:8.4pt;color:var(--gold);}
+  .mexp .md{font-size:8.1pt;color:var(--muted);}
+  .mexp .mx{font-size:8.5pt;color:var(--sub);margin-top:1px;text-align:justify;}
+
+  /* Summary */
+  .summary{font-size:9.5pt;color:var(--sub);text-align:justify;}
+  .summary b{color:var(--gold);font-weight:700;}
+
+  /* Experience (main) */
+  .exp{margin-bottom:9px;}
+  .exp-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .exp-head .co{font-size:10.8pt;font-weight:700;color:var(--ink);}
+  .exp-head .co .r{font-weight:500;color:var(--sub);font-size:9.6pt;}
+  .exp-head .dt{font-size:8.6pt;color:var(--muted);white-space:nowrap;}
+  .exp-meta{font-size:8.8pt;color:var(--muted);margin-top:1px;}
+
+  .phase{margin-top:7px;}
+  .phase-t{font-size:10pt;font-weight:700;color:var(--gold);}
+  .phase-d{font-size:9.3pt;color:var(--sub);margin:2px 0 3px;text-align:justify;}
+  ul{list-style:none;}
+  li{position:relative;padding-left:13px;margin-bottom:3.5px;font-size:9.6pt;line-height:1.5;color:var(--sub);text-align:justify;}
+  li::before{content:"";position:absolute;left:2px;top:8px;width:4.5px;height:4.5px;background:var(--gold-soft);border-radius:1px;transform:rotate(45deg);}
+  li b{color:var(--ink);font-weight:700;}
+
+  @media print{
+    html,body{background:#fff;}
+    .page{margin:0;box-shadow:none;}
+    @page{size:A4;margin:0;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="card">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+
+    <header>
+      <img class="photo" src="photo.jpg" alt="王紫沿">
+      <div class="hmain">
+        <div class="name-row">
+          <h1>王紫沿</h1><span class="en">Cici Wang</span><span class="g">女</span>
+        </div>
+        <div class="role">内容增长 / 校园大使内容增长项目负责人</div>
+        <div class="tags">
+          <span>USC 传媒管理硕士</span>
+          <span>内容 / 社媒操盘 · 5+ 年</span>
+          <span>跨平台自然播放 1 亿+</span>
+          <span>AI-native 运营</span>
+        </div>
+        <div class="contact">
+          📍 北京<span class="sep">·</span>📱 18612858683<span class="sep">·</span>✉️ cici_ziyan@163.com<span class="sep">·</span>💬 微信 18612858683
+        </div>
+      </div>
+    </header>
+
+    <div class="body">
+      <!-- Sidebar -->
+      <aside class="side">
+        <section>
+          <h2>教育背景 <span class="en">Education</span></h2>
+          <div class="edu">
+            <div class="deg">南加州大学 USC · 硕士</div>
+            <div class="sch">传媒管理（Communication Management）· Annenberg 传播学院</div>
+            <div class="date">2023.08 – 2024.05</div>
+          </div>
+          <div class="edu">
+            <div class="deg">南加州大学 USC · 本科</div>
+            <div class="sch">传播学（Communication，GPA 3.8/4.0）+ 电影艺术双学位</div>
+            <div class="date">2018.08 – 2022.05</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>职业技能 <span class="en">Skills</span></h2>
+          <div class="srow"><b>内容增长</b>TikTok / IG / YouTube 全平台运营、爆款方法论、UGC 达人矩阵、投放素材筛选与 ROI 复盘</div>
+          <div class="srow"><b>AI-native 工具</b>Cursor / MCP / Claude Code 自动化工作流、Gemini 批量视频 / 内容分析</div>
+          <div class="srow"><b>数据与策略</b>竞品拆解、内容数据分析、A/B 测试、增长闭环设计</div>
+          <div class="srow"><b>团队管理</b>跨国内外部 Coach 团队、KPI 考核体系、内容分发与监管系统</div>
+          <div class="srow"><b>创意制作</b>PS / PR / AE 精通、脚本撰写、短视频剪辑</div>
+        </section>
+
+        <section>
+          <h2>语言 & 证书 <span class="en">Languages</span></h2>
+          <div class="srow">英语（精通）· 韩语（基础）</div>
+          <div class="srow">Adobe Certified Associate (Premiere Pro)</div>
+        </section>
+
+        <section>
+          <h2>早期经历 <span class="en">Earlier</span></h2>
+          <div class="mexp">
+            <div class="mt">哔哩哔哩 <span class="mr">个人 UP 主</span></div>
+            <div class="md">2020.08 – 至今</div>
+            <div class="mx">独立运营个人账号（<span class="hl">4.6w+ 粉丝</span>），内容策划 / 文案 / 剪辑；视频多为 <span class="hl">1W+</span> 播放，最高 <span class="hl">100W+</span>。</div>
+          </div>
+          <div class="mexp">
+            <div class="mt">镜域动画文化有限公司</div>
+            <div class="mr">创业合伙人 / 运营总监 <span class="md">· 2022.06 – 2025.01</span></div>
+            <div class="mx">从 0 到 1 搭建公司 IP 全平台账号（小红书 3 个月涨粉 <span class="hl">5K+</span>、阅读 <span class="hl">10W+</span>）；策划漫展及二次元活动，单场人流最高 <span class="hl">5W+</span>、最高毛利 <span class="hl">20W+</span>；推进 IP 出海日本。</div>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <section>
+          <h2>个人简介 <span class="en">Profile</span></h2>
+          <p class="summary">内容增长 / UGC 运营负责人，5+ 年内容与社媒操盘经验。主导北美 AI 学习工具 Solvely 官方账号矩阵与校园大使 UGC 项目——单学期驱动跨平台自然播放 <span class="stat">1 亿+</span>，管理 <span class="stat">9 位</span>内外部 content coach 与 <span class="stat">~200 人</span>达人矩阵，并用 <b>Cursor / MCP 自建 AI 自动化工具链</b>把内容运营工业化。擅长从 0 到 1 搭建增长体系、数据驱动决策与跨国团队管理。</p>
+        </section>
+
+        <section>
+          <h2>工作经历 <span class="en">Experience</span></h2>
+
+          <div class="exp">
+            <div class="exp-head">
+              <div class="co">Solvely（数驱互动）<span class="r"> ｜ 内容增长项目负责人</span></div>
+              <div class="dt">2025.07 – 至今</div>
+            </div>
+            <div class="exp-meta">北美 AI 学习工具（10M+ 用户）｜ 主号运营 → 校园大使内容增长项目负责人</div>
+
+            <div class="phase">
+              <div class="phase-t">阶段①｜主号运营（2025.07 – 2025.11）</div>
+              <div class="phase-d">从 0 到 1 主导搭建并运营 Solvely 官方账号矩阵（TikTok / IG / YouTube），负责内容规划、创意脚本与发布节奏。</div>
+              <ul>
+                <li><b>账号矩阵</b>：主理 Solvely.ai 主号 + SolvelyFox（狐狸 IP 涨粉号），主号周产创意约 10 条，统筹矩阵号日更分发。</li>
+                <li><b>爆款成绩</b>：主号 TikTok 单条最高 <span class="stat">1.8M+</span>、Fox 号 <span class="stat">1.5M+</span>；主号 IG 单日峰值 <span class="stat">5.15w</span>、涨粉 <span class="stat">1.5w</span>。</li>
+                <li><b>数据闭环</b>：建立"自然流表现 → 投流前素材筛选"机制，按强/弱营销分层管理，为投放持续输送高潜素材。</li>
+              </ul>
+            </div>
+
+            <div class="phase">
+              <div class="phase-t">阶段②｜校园大使内容增长项目负责人 · 美区（2025.12 – 2026 年中）</div>
+              <div class="phase-d">从主号运营转型，从 0 到 1 独立搭建并操盘北美校园大使 UGC 项目，带领跨三平台约 200 人内容矩阵，跑通「自然流 → install → 付费转化」增长闭环。</div>
+              <ul>
+                <li><b>规模与曝光</b>：春季单学期（70 天）跨平台自然播放 <span class="stat">1 亿+</span>，Total CPI <span class="stat">&lt;$1</span>。</li>
+                <li><b>团队管理</b>：管理 <span class="stat">9 位</span>内外部（北美 + 国内）content coach，建立 Trial→B→A→S 分级晋升与周播放 KPI 考核体系。</li>
+                <li><b>方法论沉淀</b>：搭建 <span class="stat">9 大类 30+ 子模版</span>内容库与「爆款率 / Save / Share」转化力评估体系，验证「好奇心缺口」等高转化策略。</li>
+                <li><b>增长 × 产品实验</b>：用 vibe coding 自建 Fake Door 功能原型，先在社媒发布相关内容、以播放量与受众反馈验证真实需求，再联动产品团队正式开发上线，跑通"内容测需求 → 产品落地"的低成本验证闭环。</li>
+                <li><b>AI-native 基建</b>：用 Cursor / MCP 自建自动化工具链——三平台口播模版识别准确率 ≥95%，及校园大使潜力评估系统。</li>
+              </ul>
+            </div>
+
+            <div class="phase">
+              <div class="phase-t">阶段③｜校园大使内容增长项目负责人 · 海外扩张（2026 年中 – 至今）</div>
+              <div class="phase-d">美区模式跑通后，主导 UGC 项目的非美国际化复制（德语区先行，意 / 西语区跟进）。</div>
+              <ul>
+                <li><b>竞品情报</b>：系统拆解竞品在非美市场的内容打法、投放归因与爆款母题，输出市场扩张策略。</li>
+                <li><b>本地化工程</b>：自研 UGC 脚本"解码 / 本地化" AI skill，以"忠实 Hook + 本地化 brief"改写北美验证过的爆款脚本。</li>
+                <li><b>跨职能牵头</b>：统筹产品双端（Creator / Coach 端）需求、海外达人招募（自建触达工具）与多语言审核 / 结算自动化。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>
